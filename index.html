@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do App</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Main Screen -->
+        <div class="main-screen">
+            <!-- Weekly Tasks -->
+            <div class="weekly-tasks">
+                <div class="progress-circle">
+                    <span>84%</span>
+                </div>
+                <div class="task-stats">
+                    <div>
+                        <span>32</span>
+                        <p>Completed</p>
+                    </div>
+                    <div>
+                        <span>6</span>
+                        <p>Remaining</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Today's Tasks -->
+            <div class="today-tasks">
+                <div class="header">
+                    <h2>TODAY TASKS</h2>
+                    <p>7 of 10</p>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 70%;"></div>
+                </div>
+                <ul class="task-list" id="task-list">
+                    <!-- Tasks will be added dynamically -->
+                </ul>
+            </div>
+        </div>
+
+        <!-- Add Task Modal -->
+        <div class="modal" id="add-task-modal">
+            <div class="modal-content">
+                <h2>Adding Task</h2>
+                <form id="add-task-form">
+                    <label for="task-title">Task Title</label>
+                    <input type="text" id="task-title" required>
+
+                    <label for="task-description">Description</label>
+                    <input type="text" id="task-description" placeholder="NOT REQUIRED">
+
+                    <label for="task-date">Select Date</label>
+                    <input type="date" id="task-date" required>
+
+                    <label for="task-time">Select Time</label>
+                    <input type="time" id="task-time" required>
+
+                    <label>Choose Category</label>
+                    <div class="categories">
+                        <button type="button" class="category-btn" data-category="Healthy">Healthy</button>
+                        <button type="button" class="category-btn" data-category="Design">Design</button>
+                        <button type="button" class="category-btn" data-category="Job">Job</button>
+                        <button type="button" class="category-btn" data-category="Education">Education</button>
+                        <button type="button" class="category-btn" data-category="Sport">Sport</button>
+                    </div>
+                    <input type="hidden" id="task-category" name="category" required>
+
+                    <button type="submit" class="confirm-btn">Confirm Adding</button>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Floating Add Button -->
+    <button class="add-btn" id="open-modal-btn">+</button>
+
+    <script src="script1.js"></script>
+</body>
+</html>

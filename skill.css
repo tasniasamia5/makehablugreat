@@ -1,0 +1,118 @@
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #fefefe;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    max-width: 600px;
+    margin: 40px auto;
+    padding: 20px;
+  }
+  
+  h2 {
+    text-align: center;
+    color: #333;
+  }
+  
+  .input-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  input[type="text"] {
+    padding: 10px;
+    width: 60%;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #a28ae4;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #a28ae4;
+  }
+  
+  #skillList {
+    list-style: none;
+    padding: 0;
+  }
+  
+  #skillList li {
+    background-color: #f0f0f0;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 8px;
+  }
+  
+  .progress-container {
+    margin-top: 30px;
+    text-align: center;
+  }
+  
+  .progress-bar {
+    background-color: #ddd;
+    height: 20px;
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 10px;
+  }
+  
+  .progress-fill {
+    background-color: #a28ae4;
+    height: 100%;
+    width: 0%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #542ebb;
+    font-weight: bold;
+    transition: width 0.3s ease;
+  }
+  
+  #progressPercent {
+    font-weight: 600;
+  }
+  
+  .message {
+    margin-top: 20px;
+    font-weight: bold;
+    text-align: center;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+  }
+  #skillList li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f0f0f0;
+    margin-bottom: 10px;
+    padding: 10px 15px;
+    border-radius: 8px;
+  }
+  
+  .delete-btn {
+    background-color: #ff4d4d;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    width: 25px;
+    height: 25px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+  

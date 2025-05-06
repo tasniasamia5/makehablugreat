@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Study Group</title>
+  <link rel="stylesheet" href="style1.css" />
+</head>
+<body>
+  <div class="container">
+    <section class="panel">
+      <div class="header">
+        <h2>Study Group</h2>
+      </div>
+      <div class="input-group">
+        <input type="text" id="friendName" placeholder="Enter friend's name" />
+        <button class="btn-add" onclick="addFriend()">Add Friend</button>
+      </div>
+      <div id="friendList"></div>
+    </section>
+  </div>
+
+  <script>
+    function addFriend() {
+      const nameInput = document.getElementById('friendName');
+      const name = nameInput.value.trim();
+      if (!name) return;
+
+      const friendList = document.getElementById('friendList');
+
+      const friendItem = document.createElement('div');
+      friendItem.className = 'task-item';
+
+      const nameSpan = document.createElement('span');
+      nameSpan.textContent = name;
+      nameSpan.className = 'task-text';
+
+      const eliminateBtn = document.createElement('button');
+      eliminateBtn.textContent = 'Eliminate';
+      eliminateBtn.className = 'btn-add';
+      eliminateBtn.style.background = '#e74c3c';
+      eliminateBtn.onclick = () => friendItem.remove();
+
+      friendItem.appendChild(nameSpan);
+      friendItem.appendChild(eliminateBtn);
+      friendList.appendChild(friendItem);
+
+      nameInput.value = '';
+    }
+  </script>
+</body>
+</html>

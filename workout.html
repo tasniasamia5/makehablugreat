@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Find a Gym Buddy</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style1.css">
+  <style>
+    body {
+      background-color: #f0fff0;
+      font-family: 'poppins', sans-serif;
+      background-color: #fdf2f8;
+      color: #333;
+      margin: 0;
+      padding: 0;
+    }
+
+    .panel {
+      max-width: 700px;
+      margin: 50px auto;
+      background-color: #bca6fb;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    .panel h2 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    h1 {
+  text-align: center;
+  color: #a28ae4;
+  margin-top: 30px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 20px auto;
+  max-width: 600px;
+}
+
+li {
+  background: #fff;
+  border: 1px solid #f3c4d3;
+  margin-bottom: 12px;
+  padding: 15px;
+  border-radius: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.05);
+}
+
+.result {
+    margin-top: 20px;
+}
+
+.result h3 {
+    margin-top: 20px;
+    color: rgb(53, 53, 53);
+}
+
+ul {
+    padding-left: 20px;
+}
+button {
+  margin-left: 10px;
+  padding: 5px 10px;
+  background-color: #9375ec;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: 0.3 ease;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #6d46da;
+  transform: scale(1.05);
+}
+</style>
+
+
+</head>
+<body>
+  <section class="panel">
+    <h2>Find Nearby Gyms & Gymbros</h2>
+    <p>Allow location access to search for gym and workout buddies.</p>
+    <button onclick="findGymInfo()">Find Gyms & Bros</button>
+
+    <div class="result">
+      <h3>Nearby Gyms</h3>
+      <ul id="gymsList"></ul>
+
+      <h3>Nearby Gymbros</h3>
+      <ul id="brosList"></ul>
+    </div>
+  </section>
+
+  <script>
+    function findGymInfo() {
+      if (!navigator.geolocation) {
+        alert("Geolocation not supported.");
+        return;
+      }
+
+      navigator.geolocation.getCurrentPosition(async (position) => {
+        const lat = position.coords.latitude;
+        const lon = position.coords.longitude;
+
+        try {
+          const gymsRes = await fetch(https://csefest.srejon.com/api/v1/gyms?lat=${lat}&lon=${lon});
+          const brosRes = await fetch(https://csefest.srejon.com/api/v1/gymbros?lat=${lat}&lon=${lon});
+
+          const gyms = await gymsRes.json();
+          const bros = await brosRes.json();
+
+          displayList(gyms.data, 'gymsList');
+          displayList(bros.data, 'brosList');
+        } catch (err) {
+          alert("Failed to fetch data. Check console.");
+          console.error(err);
+        }
+      });
+    }
+
+function displayList(data, listId) {
+  const list = document.getElementById(listId);
+  list.innerHTML = '';
+
+  if (data.length === 0) {
+    list.innerHTML = '<li>No data found</li>';
+    return;
+    }
+
+data.forEach(item => {
+    const li = document.createElement('li');
+    const name = item.name || item.username || 'Unknown';
+
+    li.innerHTML = `
+      <strong>${name}</strong>
+      <button onclick="sendRequest('${name}')">Send Request</button>
+    `;
+    list.appendChild(li);
+});
+}
+function sendRequest(name) {
+  alert(`Request sent to ${name}!`);
+  // In real app: call an API here to send the request.
+}
+</script>
+</body>
+</html>

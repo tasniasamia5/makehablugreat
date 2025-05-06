@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Skill Progress Tracker</title>
+  <link rel="stylesheet" href="skill.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <h2>Skill Progress Tracker</h2>
+    <div class="input-group">
+      <input type="text" id="skillInput" placeholder="Enter a new skill" />
+      <button id="addSkillBtn">Add Skill</button>
+    </div>
+    <ul id="skillList"></ul>
+
+    <div class="progress-container">
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"><span id="progressText">0%</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="message" id="jobMessage"></div>
+  </div>
+
+  <script src="skill-script.js"></script>
+</body>
+</html>
